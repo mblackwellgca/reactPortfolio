@@ -4,9 +4,10 @@ import Resume from './pages/Resume';
 import About from './pages/About';
 import Work from './pages/Work';
 import Contact from './pages/Contact';
+import Footer from "./Footer"
 
 export default function PortfolioContainer() {
-  const [currentPage, setCurrentPage] = useState('Resume');
+  const [currentPage, setCurrentPage] = useState('About');
 
   // This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
   const renderPage = () => {
