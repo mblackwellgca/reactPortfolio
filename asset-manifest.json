@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/reactPortfolio/static/css/main.02aba029.css",
+    "main.js": "/reactPortfolio/static/js/main.fc46b24f.js",
+    "static/media/Git-There.jpg": "/reactPortfolio/static/media/Git-There.3de799006b960f1f0f78.jpg",
+    "static/media/Easter-Egg.jpg": "/reactPortfolio/static/media/Easter-Egg.5f4c16829a6d894a8b32.jpg",
+    "static/media/code-Quiz.jpg": "/reactPortfolio/static/media/code-Quiz.d19b265b73a02ad25cba.jpg",
+    "static/media/Work-Day-Scheduler.jpg": "/reactPortfolio/static/media/Work-Day-Scheduler.daee9e23e9b4139da1f9.jpg",
+    "static/media/Password-Generator.jpg": "/reactPortfolio/static/media/Password-Generator.0b8bc7e8ba21df51aac8.jpg",
+    "static/media/Note-Taker.jpg": "/reactPortfolio/static/media/Note-Taker.4e4eccc4700ff0202858.jpg",
+    "static/media/Blackwell_Michelle_200.jpg": "/reactPortfolio/static/media/Blackwell_Michelle_200.3b99ed4a2c91ac33c251.jpg",
+    "static/media/Tech-Blog.jpg": "/reactPortfolio/static/media/Tech-Blog.d0a8e42175137535be08.jpg",
+    "index.html": "/reactPortfolio/index.html",
+    "main.02aba029.css.map": "/reactPortfolio/static/css/main.02aba029.css.map",
+    "main.fc46b24f.js.map": "/reactPortfolio/static/js/main.fc46b24f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.02aba029.css",
+    "static/js/main.fc46b24f.js"
+  ]
+}
