@@ -1,23 +1,116 @@
-import React from 'react';
-import '../../styles/Contact.css'
+// import React from 'react';
+import '../../assets/styles/Contact.css';
 
-export default function Contact() {
-  return (
-    <div>
-      <h1>Contact</h1>
-      <p>
-        Integer cursus bibendum sem non pretium. Vestibulum in aliquet sem, quis
-        molestie urna. Aliquam semper ultrices varius. Aliquam faucibus sit amet
-        magna a ultrices. Aenean pellentesque placerat lacus imperdiet
-        efficitur. In felis nisl, luctus non ante euismod, tincidunt bibendum
-        mi. In a molestie nisl, eu sodales diam. Nam tincidunt lacus quis magna
-        posuere, eget tristique dui dapibus. Maecenas fermentum elementum
-        faucibus. Quisque nec metus vestibulum, egestas massa eu, sollicitudin
-        ipsum. Nulla facilisi. Sed ut erat ligula. Nam tincidunt nunc in nibh
-        dictum ullamcorper. Class aptent taciti sociosqu ad litora torquent per
-        conubia nostra, per inceptos himenaeos. Etiam ornare rutrum felis at
-        rhoncus. Etiam vel condimentum magna, quis tempor nulla.
-      </p>
-    </div>
-  );
+import React, { useState } from 'react';
+import { capitalizeFirstLetter } from '../../utils/helpers';
+import { validateEmail } from '../../utils/helpers';
+
+function Contact() {
+    const [pages] = useState([
+        {
+            name: "contact"
+        }
+    ]);
+
+    const [currentPage] = useState(pages[0]);
+
+    const [formState, setFormState] = useState({
+        name: '',
+        email: '',
+        message: '',
+    });
+
+    const [errorMessage, setErrorMessage] = useState('');
+    const { name, email, message } = formState;
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!errorMessage) {
+            console.log('Submit Form', formState);
+        }
+    };
+
+    const handleChange = (e) => {
+        if (e.target.name === 'email') {
+            const isValid = validateEmail(e.target.value);
+            if (!isValid) {
+                setErrorMessage('Your email is invalid.');
+            } else {
+                setErrorMessage('');
+            }
+        } else {
+            if (!e.target.value.length) {
+                setErrorMessage(`${e.target.name} is required.`);
+            } else {
+                setErrorMessage('');
+            }
+        }
+        if (!errorMessage) {
+            setFormState({ ...formState, [e.target.name]: e.target.value });
+            console.log('Handle Form', formState);
+        }
+    };
+
+    return (
+        <section className="box">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-10 mx-auto mb-4">
+                    <h1 className="text-center">{capitalizeFirstLetter(currentPage.name)}</h1>
+                        <hr className="light my-4" />
+                        <form id="contact-form" onSubmit={handleSubmit} className="mb-5">
+                            <div className="input">
+                                <label htmlFor="name">Name:</label>
+                                <input
+                                    className="form-control"
+                                    placeholder="Name"
+                                    type="text"
+                                    name="name"
+                                    defaultValue={name}
+                                    onBlur={handleChange}
+                                />
+                            </div>
+                            <div className="input">
+                                <label htmlFor="email">Email address:</label>
+                                <input
+                                    className="form-control"
+                                    placeholder="Email"
+                                    type="email"
+                                    name="email"
+                                    defaultValue={email}
+                                    onBlur={handleChange}
+                                />
+                            </div>
+                            <div className="input">
+                                <label htmlFor="message">Message:</label>
+                                <textarea
+                                    className="form-control"
+                                    placeholder="Message"
+                                    name="message"
+                                    rows="5"
+                                    defaultValue={message}
+                                    onBlur={handleChange}
+                                />
+                            </div>
+                            {errorMessage && (
+                                <div>
+                                    <p className="error-text">{errorMessage}</p>
+                                </div>
+                            )}
+                            <div className="text-center">
+                            <button type="submit" className="btn btn-primary btn-xl js-scroll-trigger">Submit</button>
+                            </div>
+                        </form>
+                    
+                        <h4>
+                            Michelle Blackwell <br />
+                            Or email me at:  <a href="mailto:nodechelle@gmail.com"> nodechelle@gmail.com</a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 }
+
+export default Contact;
